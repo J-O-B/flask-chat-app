@@ -27,9 +27,8 @@ def index():
 @app.route("/<username>")
 def user(username):
     """Display chat messages"""
-    part1 = "<h1>Welcome, {}</h1><h4>"
-    part2 = "Your Latest Messages:</h4><ul><li>{}</li></>"
-    return (part1 + part2).format(username, messages)
+    return render_template(
+        "chat.html", username=username, chat_messages=messages)
 
 
 @app.route("/<username>/<message>")
